@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar >
+    <ion-title>
+      MORSE S.O.S.
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content  [fullscreen]="true">
+ 
+  
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Texto a Código Morse </ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+      <ion-item color="transulcent">
+        <ion-label position="stacked">Ingresar texto</ion-label>
+        <ion-textarea autoGrow="true" placeholder="Ej: Al infinto y mas alla..." [(ngModel)]="text" (ngModelChange)="textChange($event)"></ion-textarea>
+      </ion-item>
+      
+      <!--<ion-button expand="block">Traducir</ion-button>-->
+
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Resultado</ion-card-title>
+    </ion-card-header>
+    
+    <ion-card-content>
+      <ion-item color="transulcent">
+        <ion-textarea autoGrow="true" [(ngModel)]="morse" placeholder=".- .-.. / .. -. ..-. .. -. .. - --- / -.-- / -- .- ... / .- .-.. .-.. .- .-.-.- .-.-.- .-.-.-" readonly></ion-textarea>
+      </ion-item>
+      
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    
+    
+    <ion-card-content>
+      <ion-label>NOTA: Cada letra está separada por un espacio. Y para indicar que es una separacion de palabras se utiliza " / ". En caso de no encontrar un caracter se muestra "?" </ion-label>
+      
+    </ion-card-content>
+  </ion-card>
+  
+</ion-content>
+<ion-button color="primary" expand="block" (click) ="flashlightMorse()">Mostrar en Linterna</ion-button>
