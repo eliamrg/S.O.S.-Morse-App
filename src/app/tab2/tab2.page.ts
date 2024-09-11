@@ -66,7 +66,7 @@ export class Tab2Page {
     
     var allowedCharacters=true;
     for(var i = 0; i < this.morse.length; i++){
-      if(this.morse[i]==" " || this.morse[i]=="/" || this.morse[i]=="." || this.morse[i]=="-"){}
+      if(this.morse[i]==" " || this.morse[i]=="|" || this.morse[i]=="." || this.morse[i]=="-"){}
       else{
         allowedCharacters=false;
       }
@@ -75,7 +75,7 @@ export class Tab2Page {
       for(let word of wordArray){
 
         var found=false;
-        if(word== '/' ){
+        if(word== '|' ){
           this.text=this.text+" ";
           found=true;
         }
