@@ -61,10 +61,14 @@ export class Tab1Page {
   constructor(private flashlight: Flashlight) {  
   }
 
- 
+ async mostrarPalabraPredeterminada(palabra:string){
+    this.textChange(event);
+    await this.flashlightMorse();
+ }
 
 
   async flashlightMorse(){
+    console.log('Mostrando mensjaje: '+this.morse)
     for (var i = 0; i < this.morse.length; i++) {
       if(this.morse[i]=="."){
         this.flashlight.switchOn();
@@ -82,10 +86,11 @@ export class Tab1Page {
   }
 
   textChange(change){
+    
     this.morse="";
     for (var i = 0; i < this.text.length; i++) {
       if(this.text[i]==" "){
-        this.morse=this.morse+" /";
+        this.morse=this.morse+" | ";
       }
       else if(this.alphabet[this.text[i].toLowerCase()]!=null){
         this.morse=this.morse+" "+this.alphabet[this.text[i].toLowerCase( )]; 

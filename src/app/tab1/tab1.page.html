@@ -1,4 +1,4 @@
-<ion-header>
+<ion-header  mode="ios">
   <ion-toolbar >
     <ion-title>
       MORSE S.O.S.
@@ -6,9 +6,48 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content  [fullscreen]="true">
- 
+<ion-content mode="ios">
+  <ion-header collapse="condense">
+    <ion-toolbar >
+      <ion-title size="large">MORSE S.O.S.</ion-title>
+    </ion-toolbar>
+  </ion-header>
   
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Palabras Predeterminadas</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col size="6" size-md="4" size-lg="2">
+            <ion-button color="danger" expand="block" shape="round" (click)="text='S.O.S.'">S.O.S.</ion-button>
+          </ion-col>
+          <ion-col size="6" size-md="4" size-lg="2">
+            <ion-button color="danger" expand="block" shape="round" (click)="text='Ayuda'">Ayuda</ion-button>
+          </ion-col>
+          <ion-col size="6" size-md="4" size-lg="2">
+            <ion-button color="tertiary" expand="block" shape="round" (click)="text='Estoy Bien'">Estoy Bien</ion-button>
+          </ion-col>
+          <ion-col size="6" size-md="4" size-lg="2">
+            <ion-button color="tertiary" expand="block" shape="round" (click)="text='Estoy herido'">Estoy herido</ion-button>
+          </ion-col>
+          <ion-col size="6" size-md="4" size-lg="2">
+            <ion-button color="primary" expand="block" shape="round" (click)="text='Espera'">Espera</ion-button>
+          </ion-col>
+          <ion-col size="6" size-md="4" size-lg="2">
+            <ion-button color="primary" expand="block" shape="round" (click)="text='Te veo'">Te veo</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+
+  
+
+
   <ion-card>
     <ion-card-header>
       <ion-card-title>Texto a Código Morse </ion-card-title>
@@ -17,34 +56,40 @@
     <ion-card-content>
       <ion-item color="transulcent">
         <ion-label position="stacked">Ingresar texto</ion-label>
-        <ion-textarea autoGrow="true" placeholder="Ej: Al infinto y mas alla..." [(ngModel)]="text" (ngModelChange)="textChange($event)"></ion-textarea>
+        <ion-input autoGrow="true" placeholder="Ingresa tu mensaje" [(ngModel)]="text" (ngModelChange)="textChange($event)"></ion-input>
+      </ion-item>
+      <ion-item lines="none" color="transulcent">
+        <ion-textarea autoGrow="true" [(ngModel)]="morse" placeholder="Aquí se muestra tu mensaje" readonly></ion-textarea>
       </ion-item>
       
       <!--<ion-button expand="block">Traducir</ion-button>-->
 
+      <ion-label>Cada letra está separada por un espacio. Para indicar una separacion de palabras se utiliza " / ". En caso de ingresar un caracter no permitido se muestra "?" </ion-label>
     </ion-card-content>
   </ion-card>
-  <ion-card>
+  <!-- <ion-card>
     <ion-card-header>
       <ion-card-title>Resultado</ion-card-title>
     </ion-card-header>
     
     <ion-card-content>
       <ion-item color="transulcent">
-        <ion-textarea autoGrow="true" [(ngModel)]="morse" placeholder=".- .-.. / .. -. ..-. .. -. .. - --- / -.-- / -- .- ... / .- .-.. .-.. .- .-.-.- .-.-.- .-.-.-" readonly></ion-textarea>
+        <ion-textarea autoGrow="true" [(ngModel)]="morse" placeholder="Aquí se muestra tu mensaje" readonly></ion-textarea>
       </ion-item>
       
     </ion-card-content>
-  </ion-card>
+  </ion-card> -->
 
-  <ion-card>
-    
-    
+  <!-- <ion-card>
     <ion-card-content>
       <ion-label>NOTA: Cada letra está separada por un espacio. Y para indicar que es una separacion de palabras se utiliza " / ". En caso de no encontrar un caracter se muestra "?" </ion-label>
       
     </ion-card-content>
-  </ion-card>
-  
+  </ion-card> -->
 </ion-content>
-<ion-button color="primary" expand="block" (click) ="flashlightMorse()">Mostrar en Linterna</ion-button>
+<!-- <ion-fab  vertical="bottom" horizontal="center" slot="fixed">
+  <ion-fab-button (click) ="flashlightMorse()">
+    <ion-icon name="flashlight-outline"></ion-icon>
+  </ion-fab-button>
+</ion-fab> -->
+<!-- <ion-button color="primary" expand="block" shape="round" (click) ="flashlightMorse()">Mostrar en Linterna</ion-button> -->
