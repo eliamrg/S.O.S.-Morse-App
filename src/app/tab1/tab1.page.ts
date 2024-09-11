@@ -61,8 +61,9 @@ export class Tab1Page {
   constructor(private flashlight: Flashlight) {  
   }
 
- async mostrarPalabraPredeterminada(palabra:string){
-    this.textChange(event);
+ async showDefaultPhrase(palabra:string){
+  this.text=palabra;  
+  this.showTextInMorse();
     await this.flashlightMorse();
  }
 
@@ -86,7 +87,11 @@ export class Tab1Page {
   }
 
   textChange(change){
-    
+    this.showTextInMorse();
+  
+  }
+
+  showTextInMorse(){
     this.morse="";
     for (var i = 0; i < this.text.length; i++) {
       if(this.text[i]==" "){
