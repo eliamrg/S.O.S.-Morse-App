@@ -69,19 +69,22 @@ export class Tab1Page {
 
 
   async flashlightMorse(){
+     let pause=200;
+     let dot=300;
+     let line=1500;
     console.log('Mostrando mensjaje: '+this.morse)
     for (var i = 0; i < this.morse.length; i++) {
       if(this.morse[i]=="."){
         this.flashlight.switchOn();
-        await new Promise(f => setTimeout(f, 500));
+        await new Promise(f => setTimeout(f, dot));
         this.flashlight.switchOff();
-        await new Promise(f => setTimeout(f, 500));
+        await new Promise(f => setTimeout(f, pause));
       }
       else if(this.morse[i]=="-"){
         this.flashlight.switchOn();
-        await new Promise(f => setTimeout(f, 1500));
+        await new Promise(f => setTimeout(f, line));
         this.flashlight.switchOff();
-        await new Promise(f => setTimeout(f, 500));
+        await new Promise(f => setTimeout(f, pause));
       }
     }
   }
@@ -98,7 +101,7 @@ export class Tab1Page {
         this.morse=this.morse+" | ";
       }
       else if(this.alphabet[this.text[i].toLowerCase()]!=null){
-        this.morse=this.morse+" "+this.alphabet[this.text[i].toLowerCase( )]; 
+        this.morse=this.morse+"   "+this.alphabet[this.text[i].toLowerCase( )]; 
       }
       else{
         this.morse=this.morse+" ? ";
